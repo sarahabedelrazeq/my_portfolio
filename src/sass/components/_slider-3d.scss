@@ -1,0 +1,107 @@
+$time: 500ms;
+$delay: $time/2;
+$mode: cubic-bezier(0.17, 0.67, 0.55, 1.43);
+
+.slider-3d {
+  display: block;
+  height: 400px !important;
+  max-height: 400px !important;
+
+  @media only screen and (max-width: 425px) {
+    zoom: 0.5;
+  }
+
+  .slider-container {
+    height: 100% !important;
+    max-height: 100% !important;
+    @media only screen and (min-width: 1440px) {
+      display: flex;
+      justify-content: flex-end;
+    }
+    .slider-content {
+      width: 100% !important;
+      height: 100% !important;
+      max-height: 100% !important;
+
+      .slider-single {
+        height: 100% !important;
+        max-height: 100% !important;
+        position: absolute;
+        z-index: 0;
+        right: 0;
+        left: 0;
+        top: 0;
+        margin-right: auto;
+        margin-left: auto;
+        width: 75%;
+
+        @media only screen and (max-width: 1024px) {
+          width: 75%;
+        }
+
+        transition: opacity $delay;
+        .slider-single-content {
+          height: 100% !important;
+          max-height: 100% !important;
+          display: flex;
+          justify-content: center;
+
+          position: relative;
+          left: 0;
+          top: 0;
+          transition: $time $mode;
+          transform: scale(0);
+          img {
+            object-fit: contain;
+            height: 100% !important;
+            max-height: 100% !important;
+            max-width: 100% !important;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-user-drag: none;
+            -webkit-touch-callout: none;
+          }
+        }
+        &.preactivegone {
+          .slider-single-content {
+            transform: translateX(-50%) scale(0);
+            opacity: 0;
+          }
+        }
+        &.preactive {
+          z-index: 1;
+          opacity: 0.8;
+          .slider-single-content {
+            transform: translateX(-25%) scale(0.8);
+          }
+        }
+        &.proactive {
+          z-index: 1;
+          opacity: 0.8;
+          .slider-single-content {
+            transform: translateX(25%) scale(0.8);
+          }
+        }
+        &.proactivegone {
+          .slider-single-content {
+            transform: translateX(50%) scale(0);
+            opacity: 0;
+          }
+        }
+        &.active {
+          z-index: 2;
+          .slider-single-content {
+            transform: translateX(0%) scale(1);
+          }
+        }
+      }
+    }
+    .slider-disabled {
+      div {
+        display: none;
+      }
+    }
+  }
+}

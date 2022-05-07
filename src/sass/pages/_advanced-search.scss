@@ -1,0 +1,17 @@
+#advanced-search_page {
+  select {
+    z-index: 2;
+    position: relative;
+    background-color: transparent;
+    color: theme-color(light4);
+    cursor: pointer;
+
+    &:focus {
+      & ~ .absolute-arrow {
+        * {
+          fill: theme-color(primary);
+        }
+      }
+    }
+  }
+}

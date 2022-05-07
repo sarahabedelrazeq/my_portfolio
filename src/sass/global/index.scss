@@ -1,0 +1,291 @@
+a,
+svg,
+button,
+.borrow_form,
+.slide_text {
+  -webkit-transition: all 250ms ease;
+  -moz-transition: all 250ms ease;
+  -ms-transition: all 250ms ease;
+  -o-transition: all 250ms ease;
+  transition: all 250ms ease;
+}
+
+section {
+  margin-bottom: 100px;
+}
+
+section:first-child {
+  // This should be converted to className .page
+  margin-top: 100px;
+}
+
+@media only screen and(max-width: 768px) {
+  section {
+    margin-bottom: 80px;
+  }
+
+  section:first-child {
+    margin-top: 80px;
+  }
+}
+
+.form-control {
+  &:focus {
+    border-color: theme-color(primary) !important;
+    z-index: unset !important;
+  }
+}
+
+.btn-outline-primary-hover {
+  &:hover,
+  &:active,
+  &:focus {
+    color: theme-color(primary);
+    background-color: transparent;
+  }
+}
+
+svg {
+  &.favourite,
+  &.save {
+    fill: theme-color(light4);
+    top: 20px;
+    right: 20px;
+    transition: fill 100ms linear;
+    * {
+      transition: fill 100ms linear;
+    }
+    &:hover:not(.active) {
+      fill: theme-color(light5);
+      * {
+        fill: theme-color(light5);
+      }
+    }
+    
+
+    &:lang(ar) {
+      right: auto;
+      left: 20px;
+    }
+  }
+
+  &.favourite {
+    &.active {
+      fill: theme-color(primary);
+      * {
+        fill: theme-color(primary);
+      }
+    }
+  }
+}
+
+.svg-fill {
+  fill: theme-color(light3);
+
+  * {
+    fill: theme-color(light3);
+  }
+
+  &-light4 {
+    fill: theme-color(light4);
+
+    * {
+      fill: theme-color(light4);
+    }
+  }
+
+  &-primary {
+    fill: theme-color(primary);
+
+    * {
+      fill: theme-color(primary);
+    }
+  }
+
+  &-black {
+    fill: theme-color("black");
+
+    * {
+      fill: theme-color("black");
+    }
+  }
+
+  &-white {
+    fill: white;
+    * {
+      fill: white;
+    }
+  }
+}
+
+*:focus-visible {
+  outline: inset !important;
+}
+
+.rotated {
+  transform: scaleX(-1);
+
+  &:lang(ar) {
+    transform: scaleX(1);
+  }
+}
+
+.flipped {
+  transform: rotate(180deg);
+}
+
+.reversed {
+  &:lang(ar) {
+    transform: rotate(180deg);
+  }
+}
+
+.z-100 {
+  z-index: 100;
+}
+
+.column-gap {
+  &-2 {
+    column-gap: 12px;
+  }
+  &-4 {
+    column-gap: 24px;
+  }
+}
+
+.fw-medium {
+  font-weight: normal !important;
+  font-weight: 500 !important;
+}
+.avatar {
+  background-color: #ccd9e0;
+}
+
+.phone_number {
+  direction: ltr;
+  display: inline-block;
+}
+
+.slick-slider {
+  .slick-slide div{
+    &:lang(ar) {
+      direction: rtl;
+    }
+  }
+
+  .slick-arrow {
+    left: auto;
+    right: auto;
+  }
+
+  .slick-arrow::after,
+  .slick-arrow::before {
+    content: none;
+  }
+
+  .slick-prev {
+    left: -20px;
+  }
+
+  .slick-next {
+    right: -20px;
+  }
+
+  .slick-dots {
+    li {
+      margin: 0 1px;
+      button::before {
+        font-size: 14px;
+        color: theme-color(primary);
+      }
+    }
+
+    li button:hover::before,
+    li button:focus::before {
+      opacity: 0.25;
+    }
+
+    .slick-active {
+      button::before {
+        opacity: 1 !important;
+      }
+    }
+  }
+}
+
+*:focus-visible {
+  outline: inset !important;
+  outline-width: 0 !important;
+}
+
+.filter_hover {
+  -webkit-filter: brightness(95%);
+  -moz-filter: brightness(95%);
+  -o-filter: brightness(95%);
+  -ms-filter: brightness(95%);
+  filter: brightness(95%);
+  transition: filter 250ms linear;
+
+  &:hover {
+    -webkit-filter: brightness(105%);
+    -moz-filter: brightness(105%);
+    -o-filter: brightness(105%);
+    -ms-filter: brightness(105%);
+    filter: brightness(105%);
+  }
+}
+
+input,
+textarea,
+select,
+button {
+  & ~ .absolute-arrow {
+    position: absolute;
+    top: calc(50% - 10px);
+
+    &:lang(en) {
+      right: 24px;
+    }
+    &:lang(ar) {
+      left: 24px;
+    }
+  }
+}
+
+.cut-text {
+  &-1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
+
+  &-2 {
+    overflow-y: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  &-3 {
+    overflow-y: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+
+  &-4 {
+    overflow-y: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+  }
+}
+
+.swal2-confirm {
+  background-color: theme-color(primary) !important;
+}

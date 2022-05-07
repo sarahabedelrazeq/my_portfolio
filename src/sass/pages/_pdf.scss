@@ -1,0 +1,10 @@
+#pdf_page{
+    .rpv-core__viewer{
+        width: 100% !important;
+        max-width: 100% !important;
+
+        *{
+            max-width: 100%;
+        }
+    }
+}
