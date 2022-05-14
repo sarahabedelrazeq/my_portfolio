@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { DEFAULT_LANGUAGE } from "../../constants";
+import { DEFAULT_THEME, DEFAULT_LANGUAGE } from "../../constants";
 
 const initialState = {
   language: DEFAULT_LANGUAGE,
+  theme: DEFAULT_THEME,
 };
 
 const appSlice = createSlice({
@@ -12,8 +13,11 @@ const appSlice = createSlice({
     switchLanguage: (state, action) => {
       state.language = action.payload;
     },
+    switchTheme: (state, action) => {
+      state.theme = action.payload;
+    },
   },
 });
 
-export const { switchLanguage } = appSlice.actions;
+export const { switchLanguage, switchTheme } = appSlice.actions;
 export default appSlice.reducer;

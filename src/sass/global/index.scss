@@ -10,24 +10,6 @@ button,
   transition: all 250ms ease;
 }
 
-section {
-  margin-bottom: 100px;
-}
-
-section:first-child {
-  // This should be converted to className .page
-  margin-top: 100px;
-}
-
-@media only screen and(max-width: 768px) {
-  section {
-    margin-bottom: 80px;
-  }
-
-  section:first-child {
-    margin-top: 80px;
-  }
-}
 
 .form-control {
   &:focus {
@@ -42,40 +24,6 @@ section:first-child {
   &:focus {
     color: theme-color(primary);
     background-color: transparent;
-  }
-}
-
-svg {
-  &.favourite,
-  &.save {
-    fill: theme-color(light4);
-    top: 20px;
-    right: 20px;
-    transition: fill 100ms linear;
-    * {
-      transition: fill 100ms linear;
-    }
-    &:hover:not(.active) {
-      fill: theme-color(light5);
-      * {
-        fill: theme-color(light5);
-      }
-    }
-    
-
-    &:lang(ar) {
-      right: auto;
-      left: 20px;
-    }
-  }
-
-  &.favourite {
-    &.active {
-      fill: theme-color(primary);
-      * {
-        fill: theme-color(primary);
-      }
-    }
   }
 }
 
@@ -125,7 +73,7 @@ svg {
 .rotated {
   transform: scaleX(-1);
 
-  &:lang(ar) {
+  &[dir="rtl"] {
     transform: scaleX(1);
   }
 }
@@ -135,7 +83,7 @@ svg {
 }
 
 .reversed {
-  &:lang(ar) {
+  &[dir="rtl"] {
     transform: rotate(180deg);
   }
 }
@@ -164,53 +112,6 @@ svg {
 .phone_number {
   direction: ltr;
   display: inline-block;
-}
-
-.slick-slider {
-  .slick-slide div{
-    &:lang(ar) {
-      direction: rtl;
-    }
-  }
-
-  .slick-arrow {
-    left: auto;
-    right: auto;
-  }
-
-  .slick-arrow::after,
-  .slick-arrow::before {
-    content: none;
-  }
-
-  .slick-prev {
-    left: -20px;
-  }
-
-  .slick-next {
-    right: -20px;
-  }
-
-  .slick-dots {
-    li {
-      margin: 0 1px;
-      button::before {
-        font-size: 14px;
-        color: theme-color(primary);
-      }
-    }
-
-    li button:hover::before,
-    li button:focus::before {
-      opacity: 0.25;
-    }
-
-    .slick-active {
-      button::before {
-        opacity: 1 !important;
-      }
-    }
-  }
 }
 
 *:focus-visible {
@@ -243,10 +144,10 @@ button {
     position: absolute;
     top: calc(50% - 10px);
 
-    &:lang(en) {
+    &[dir="ltr"] {
       right: 24px;
     }
-    &:lang(ar) {
+    &[dir="rtl"] {
       left: 24px;
     }
   }
@@ -284,8 +185,4 @@ button {
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
   }
-}
-
-.swal2-confirm {
-  background-color: theme-color(primary) !important;
 }

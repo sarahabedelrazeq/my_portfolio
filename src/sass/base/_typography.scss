@@ -1,34 +1,4 @@
-@font-face {
-  font-family: "SST Arabic";
-  font-weight: lighter;
-  font-weight: 300;
-  src: local("SST Arabic"),
-    url("../../assets/fonts/SST Arabic Light.ttf") format("truetype");
-}
 
-@font-face {
-  font-family: "SST Arabic";
-  src: local("SST Arabic"),
-    url("../../assets/fonts/SST Arabic Roman.ttf") format("truetype");
-  font-weight: normal;
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: "SST Arabic";
-  font-weight: medium;
-  font-weight: 500;
-  src: local("SST Arabic"),
-    url("../../assets/fonts/SST Arabic Medium.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "SST Arabic";
-  font-weight: bold;
-  font-weight: 700;
-  src: local("SST Arabic"),
-    url("../../assets/fonts/SST Arabic Bold.ttf") format("truetype");
-}
 
 * {
   font-family: "SST Arabic";

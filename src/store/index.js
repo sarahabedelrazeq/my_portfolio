@@ -15,15 +15,13 @@ import autoMergeLevel2 from "redux-persist/lib/stateReconciler/autoMergeLevel2";
 import { createFilter } from "redux-persist-transform-filter";
 import app from "./app";
 
-const appReducerFilter = createFilter("app", ["language"]);
-const authReducerFilter = createFilter("auth", ["access_token"]);
-const userReducerFilter = createFilter("user", ["cart"]);
+const appReducerFilter = createFilter("app", ["language", "theme"]);
 
 const persistConfig = {
   key: "sarah_abed_elrazeq_portfolio",
   whitelist: ["app"],
   storage,
-  transforms: [appReducerFilter, authReducerFilter, userReducerFilter],
+  transforms: [appReducerFilter],
   stateReconciler: autoMergeLevel2,
 };
 

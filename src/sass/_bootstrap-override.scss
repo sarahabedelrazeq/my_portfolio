@@ -34,19 +34,19 @@ ul {
 }
 
 .text-start {
-  &:lang(en) {
+  &[dir="ltr"] {
     text-align: right !important;
   }
 }
 
 .text-end {
-  &:lang(en) {
+  &[dir="ltr"] {
     text-align: left !important;
   }
 }
 
 .float-start {
-  &:lang(en) {
+  &[dir="ltr"] {
     float: right !important;
   }
 }
@@ -80,22 +80,22 @@ ul {
 .input-group {
   :nth-child(1) {
     border-radius: 0;
-    &:lang(ar) {
+    &[dir="rtl"] {
       border-top-right-radius: 8px !important;
       border-bottom-right-radius: 8px !important;
     }
-    &:lang(en) {
+    &[dir="ltr"] {
       border-top-left-radius: 8px;
       border-bottom-left-radius: 8px;
     }
   }
   :nth-child(3) {
     border-radius: 0;
-    &:lang(ar) {
+    &[dir="rtl"] {
       border-top-left-radius: 8px !important;
       border-bottom-left-radius: 8px !important;
     }
-    &:lang(en) {
+    &[dir="ltr"] {
       border-top-right-radius: 8px;
       border-bottom-right-radius: 8px;
     }
