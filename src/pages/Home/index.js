@@ -14,15 +14,10 @@ const Home = () => {
         <Container className="py-5">
           <Row>
             <Col xs={12} className="text-center mb-4 mb-lg-4">
-              <h1 style={{ color: theme.text }}>
-                Designer, Front-end Developer & Mentor
-              </h1>
+              <h1 style={{ color: theme.text }}>{language.mainTitle}</h1>
             </Col>
             <Col xs={12} className="text-center mb-4 mb-lg-4">
-              <p style={{ color: theme.text }}>
-                I design and code beautifully simple things, and I love what I
-                do.
-              </p>
+              <p style={{ color: theme.text }}>{language.mainSubTitle}</p>
             </Col>
             <Col xs={12} className="">
               <Row className="justify-content-center">
@@ -42,15 +37,10 @@ const Home = () => {
         <Container className="py-5">
           <Row className="justify-content-center">
             <Col xs={12} className="text-center mb-4 mb-lg-4">
-              <h3 style={{ color: theme.bg }}>
-                Designer, Front-end Developer & Mentor
-              </h3>
-            </Col> 
+              <h3 style={{ color: theme.bg }}>{language.aboutTitle}</h3>
+            </Col>
             <Col xs={12} className="text-center mb-4 mb-lg-4">
-              <p style={{ color: theme.bg }}>
-                I design and code beautifully simple things, and I love what I
-                do.
-              </p>
+              <p style={{ color: theme.bg }}>{language.aboutSubTitle}</p>
             </Col>
             <Col lg={4} md={6} xs={8} className="text-center mb-4 mb-lg-4">
               <Container
@@ -60,8 +50,7 @@ const Home = () => {
                 <Row>
                   <Col xs={12} className="mb-4">
                     <h4 style={{ color: theme.text }}>
-                      {" "}
-                      {language.languages}{" "}
+                      {language.languages}
                     </h4>
                   </Col>
                 </Row>
@@ -86,8 +75,7 @@ const Home = () => {
                 <Row>
                   <Col xs={12} className="mb-4">
                     <h4 style={{ color: theme.text }}>
-                      {" "}
-                      {language.frameWorks}{" "}
+                      {language.frameWorks}
                     </h4>
                   </Col>
                 </Row>
