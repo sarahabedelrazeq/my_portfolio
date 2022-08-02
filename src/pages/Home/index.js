@@ -1,8 +1,9 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import { icons, images } from "../../assets";
-import { Main } from "../../components/Layouts";
-import { useLanguage, useTheme } from "../../hooks";
+import { images } from "assets";
+import { Main } from "components/Layouts";
+import { useLanguage, useTheme } from "hooks";
+import about from "data/about.json";
 
 const Home = () => {
   const language = useLanguage();
@@ -42,76 +43,35 @@ const Home = () => {
             <Col xs={12} className="text-center mb-4 mb-lg-4">
               <p style={{ color: theme.bg }}>{language.aboutSubTitle}</p>
             </Col>
-            <Col lg={4} md={6} xs={8} className="text-center mb-4 mb-lg-4">
-              <Container
-                style={{ background: theme.bg }}
-                className="rounded-3 py-4 py-lg-5"
+            {about.map((info, index) => (
+              <Col
+                lg={4}
+                md={6}
+                xs={8}
+                className="text-center mb-4 mb-lg-4"
+                key={index}
               >
-                <Row>
-                  <Col xs={12} className="mb-4">
-                    <h4 style={{ color: theme.text }}>
-                      {language.languages}
-                    </h4>
-                  </Col>
-                </Row>
-                <Row className="justify-content-center px-4">
-                  <Col xs={4}>
-                    <img className="w-100" alt="html" src={icons.html} />
-                  </Col>
-                  <Col xs={4}>
-                    <img className="w-100" alt="js" src={icons.js} />
-                  </Col>
-                  <Col xs={4}>
-                    <img className="w-100" alt="css" src={icons.css} />
-                  </Col>
-                </Row>
-              </Container>
-            </Col>
-            <Col lg={4} md={6} xs={8} className="text-center mb-4 mb-lg-4">
-              <Container
-                style={{ background: theme.bg }}
-                className="rounded-3 py-4 py-lg-5"
-              >
-                <Row>
-                  <Col xs={12} className="mb-4">
-                    <h4 style={{ color: theme.text }}>
-                      {language.frameWorks}
-                    </h4>
-                  </Col>
-                </Row>
-                <Row className="justify-content-center px-4">
-                  <Col xs={4}>
-                    <img className="w-100" alt="react" src={icons.react} />
-                  </Col>
-                  <Col xs={4}>
-                    <img className="w-100" alt="sass" src={icons.sass} />
-                  </Col>
-                  <Col xs={4}>
-                    <img className="w-100" alt="redux" src={icons.redux} />
-                  </Col>
-                </Row>
-              </Container>
-            </Col>
-            <Col lg={4} md={6} xs={8} className="text-center mb-4 mb-lg-4">
-              <Container
-                style={{ background: theme.bg }}
-                className="rounded-3 py-4 py-lg-5"
-              >
-                <Row>
-                  <Col xs={12} className="mb-4">
-                    <h4 style={{ color: theme.text }}> {language.tools} </h4>
-                  </Col>
-                </Row>
-                <Row className="justify-content-center px-4">
-                  <Col xs={4}>
-                    <img className="w-100" alt="github" src={icons.github} />
-                  </Col>
-                  <Col xs={4}>
-                    <img className="w-100" alt="adobe xd" src={icons.xd} />
-                  </Col>
-                </Row>
-              </Container>
-            </Col>
+                <Container
+                  style={{ background: theme.bg }}
+                  className="rounded-3 py-4 py-lg-5"
+                >
+                  <Row>
+                    <Col xs={12} className="mb-4">
+                      <h4 style={{ color: theme.text }}>
+                        {language[info?.name]}
+                      </h4>
+                    </Col>
+                  </Row>
+                  <Row className="justify-content-center px-4">
+                    {info?.images.map((image, index) => (
+                      <Col xs={4} key={index}>
+                        <img className="w-100" alt="html" src={image} />
+                      </Col>
+                    ))}
+                  </Row>
+                </Container>
+              </Col>
+            ))}
           </Row>
         </Container>
       </section>

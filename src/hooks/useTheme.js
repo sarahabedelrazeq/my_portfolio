@@ -1,4 +1,4 @@
-import { light, dark } from "../themes";
+import { light, dark } from "themes";
 import { useSelector } from "react-redux";
 
 export default function useTheme() {

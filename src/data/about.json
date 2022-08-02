@@ -1,0 +1,19 @@
+[
+  {
+    "name": "languages",
+    "images": [
+      "/images/HTML-logo.svg",
+      "/images/JS-logo.svg",
+      "/images/CSS-logo.svg"
+    ]
+  },
+  {
+    "name": "frameWorks",
+    "images": [
+      "/images/REACT-logo.svg",
+      "/images/SASS-logo.svg",
+      "/images/REDUX-logo.svg"
+    ]
+  },
+  { "name": "tools", "images": ["/images/GIT-logo.svg", "/images/XD-logo.svg"] }
+]

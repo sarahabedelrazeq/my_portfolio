@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { DEFAULT_THEME, DEFAULT_LANGUAGE } from "../../constants";
+import { DEFAULT_THEME, DEFAULT_LANGUAGE } from "constants";
 
 const initialState = {
   language: DEFAULT_LANGUAGE,

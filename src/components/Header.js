@@ -4,8 +4,8 @@ import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { useLanguage, useTheme } from "../hooks";
-import { switchLanguage, switchTheme } from "../store/app";
+import { useLanguage, useTheme } from "hooks";
+import { switchLanguage, switchTheme } from "store/app";
 
 const Header = () => {
   const language = useLanguage();
