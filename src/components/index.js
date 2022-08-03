@@ -1,9 +1,5 @@
-import Footer from "./Footer"
-import Header from "./Header"
-import Main from "./Main"
+import Footer from "./Footer";
+import Header from "./Header";
+import DynamicForm from "./DynamicForm";
 
-export {
-    Footer, 
-    Header, 
-    Main,
-}
+export { Footer, Header, DynamicForm };
