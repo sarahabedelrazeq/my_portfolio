@@ -1,8 +1,23 @@
+import { Fallback } from "components";
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { useLanguage } from "./hooks";
-import { Home } from "./pages";
 import "./sass/index.scss";
+
+const routes = [
+  {
+    path: "/",
+    exact: true,
+    name: "Home",
+    component: React.lazy(() => import("pages/Home")),
+  },
+  {
+    path: "/forms",
+    exact: true,
+    name: "Forms",
+    component: React.lazy(() => import("pages/Forms")),
+  },
+];
 
 function App() {
   const language = useLanguage();
@@ -10,12 +25,32 @@ function App() {
     document.documentElement.setAttribute("lang", language.lang);
     document.documentElement.setAttribute("dir", language.direction);
   }, [language]);
-  
+
   return (
     <div>
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
+      <React.Suspense
+        fallback={
+          <div className="vw-100 vh-100">
+            <Fallback />
+          </div>
+        }
+      >
+        <Routes basename="/">
+          {routes.map((route, idx) => {
+            return (
+              route.component && (
+                <Route
+                  key={idx}
+                  path={route.path}
+                  exact={route.exact}
+                  name={route.name}
+                  element={<route.component />}
+                />
+              )
+            );
+          })}
+        </Routes>
+      </React.Suspense>
     </div>
   );
 }

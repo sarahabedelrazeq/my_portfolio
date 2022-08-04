@@ -1,7 +1,8 @@
 import React from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { Controller, useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup"
+import { yupResolver } from "@hookform/resolvers/yup";
+import classNames from "classnames";
 
 function DynamicForm({ fields, defaultValues, schema }) {
   const {
@@ -17,8 +18,6 @@ function DynamicForm({ fields, defaultValues, schema }) {
 
   console.log("Dynamic Form errors", errors);
 
-  console.log("Dynamic Form data", watch());
-
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       <Row>
@@ -27,7 +26,13 @@ function DynamicForm({ fields, defaultValues, schema }) {
             <Form.Group className="mb-4" controlId={val?.id}>
               <Row>
                 <Col xs={12} className="mb-3">
-                  <Form.Label>{val?.title}</Form.Label>
+                  <Form.Label
+                    className={classNames({
+                      "text-danger": errors[val?.name]?.message,
+                    })}
+                  >
+                    {val?.title}
+                  </Form.Label>
                 </Col>
                 <Col xs={12} className="mb-3">
                   <Controller
@@ -40,19 +45,27 @@ function DynamicForm({ fields, defaultValues, schema }) {
                       fieldState: { invalid, isTouched, isDirty, error },
                       formState,
                     }) => (
-                      <Form.Control
-                        onBlur={onBlur} // notify when input is touched
-                        onChange={onChange} // send value to hook form
-                        value={value}
-                        ref={ref}
-                        placeholder={val?.placeholder}
-                      />
+                      <>
+                        <Form.Control
+                          onBlur={onBlur} // notify when input is touched
+                          onChange={onChange} // send value to hook form
+                          value={value}
+                          ref={ref}
+                          placeholder={val?.placeholder}
+                          aria-invalid={error?.message ? "true" : "false"}
+                          className={classNames({
+                            "border-danger": error?.message,
+                          })}
+                        />
+                      </>
                     )}
                   />
                 </Col>
                 <Col xs={12}>
                   {errors[val?.name] && (
-                    <p className="text-danger">This field is required</p>
+                    <p className="text-danger" role="alert">
+                      {errors[val?.name]?.message}
+                    </p>
                   )}
                 </Col>
               </Row>
