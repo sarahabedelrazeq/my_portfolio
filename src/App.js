@@ -1,4 +1,4 @@
-import { Fallback } from "components";
+import { ErrorBoundary, Fallback } from "components";
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { useLanguage } from "./hooks";
@@ -17,6 +17,12 @@ const routes = [
     name: "Forms",
     component: React.lazy(() => import("pages/Forms")),
   },
+  {
+    path: "/ForwardRef",
+    exact: true,
+    name: "Forward Ref",
+    component: React.lazy(() => import("pages/ForwardRef")),
+  },
 ];
 
 function App() {
@@ -27,31 +33,33 @@ function App() {
   }, [language]);
 
   return (
-    <div>
-      <React.Suspense
-        fallback={
-          <div className="vw-100 vh-100">
-            <Fallback />
-          </div>
-        }
-      >
-        <Routes basename="/">
-          {routes.map((route, idx) => {
-            return (
-              route.component && (
-                <Route
-                  key={idx}
-                  path={route.path}
-                  exact={route.exact}
-                  name={route.name}
-                  element={<route.component />}
-                />
-              )
-            );
-          })}
-        </Routes>
-      </React.Suspense>
-    </div>
+    <ErrorBoundary>
+      <div>
+        <React.Suspense
+          fallback={
+            <div className="vw-100 vh-100">
+              <Fallback />
+            </div>
+          }
+        >
+          <Routes basename="/">
+            {routes.map((route, idx) => {
+              return (
+                route.component && (
+                  <Route
+                    key={idx}
+                    path={route.path}
+                    exact={route.exact}
+                    name={route.name}
+                    element={<route.component />}
+                  />
+                )
+              );
+            })}
+          </Routes>
+        </React.Suspense>
+      </div>
+    </ErrorBoundary>
   );
 }
 
