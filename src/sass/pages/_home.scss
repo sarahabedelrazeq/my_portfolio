@@ -1,8 +1,8 @@
 #home_page {
-  section:nth-child(even){
+  .multicolor-section {
     background: linear-gradient(
       180deg,
-      theme-color(primary)  30%,
+      theme-color(primary) 30%,
       theme-color(secondary) 70%
     );
   }

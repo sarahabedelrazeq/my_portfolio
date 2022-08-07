@@ -36,7 +36,8 @@ const Home = () => {
           </Row>
         </Container>
       </section>
-      <section className="pt-5">
+
+      <section className="pt-5 multicolor-section">
         <Container className="py-5">
           <Row className="justify-content-center">
             <Col xs={12} className="text-center mb-4 mb-lg-4">
@@ -81,6 +82,7 @@ const Home = () => {
           </Row>
         </Container>
       </section>
+
       <section className="pt-5">
         <Container className="py-5">
           <Row>
