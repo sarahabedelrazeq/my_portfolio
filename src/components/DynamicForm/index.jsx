@@ -1,14 +1,10 @@
 import React from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
-import {
-  Controller,
-  FormProvider,
-  useForm,
-  useFormContext,
-} from "react-hook-form";
+import { Controller, FormProvider, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import classNames from "classnames";
 import Test from "./Test";
+import TransitionInput from "./fields/TransitionInput";
 
 // function Test() {
 //   const methods = useFormContext();
@@ -49,31 +45,37 @@ function DynamicForm({ fields, defaultValues, schema }) {
                     </Form.Label>
                   </Col>
                   <Col xs={12} className="mb-3">
-                    <Controller
-                      name={val?.name}
-                      control={control}
-                      rules={{ required: true }}
-                      defaultValue={val?.defaultValue ? val?.defaultValue : ""}
-                      render={({
-                        field: { onChange, onBlur, value, name, ref },
-                        fieldState: { invalid, isTouched, isDirty, error },
-                        formState,
-                      }) => (
-                        <>
-                          <Form.Control
-                            onBlur={onBlur} // notify when input is touched
-                            onChange={onChange} // send value to hook form
-                            value={value}
-                            ref={ref}
-                            placeholder={val?.placeholder}
-                            aria-invalid={error?.message ? "true" : "false"}
-                            className={classNames({
-                              "border-danger": error?.message,
-                            })}
-                          />
-                        </>
-                      )}
-                    />
+                    {val.component === "transition-input" ? (
+                      <TransitionInput val={val} />
+                    ) : (
+                      <Controller
+                        name={val?.name}
+                        control={control}
+                        rules={{ required: true }}
+                        defaultValue={
+                          val?.defaultValue ? val?.defaultValue : ""
+                        }
+                        render={({
+                          field: { onChange, onBlur, value, name, ref },
+                          fieldState: { invalid, isTouched, isDirty, error },
+                          formState,
+                        }) => (
+                          <>
+                            <Form.Control
+                              onBlur={onBlur}
+                              onChange={onChange}
+                              value={value}
+                              ref={ref}
+                              placeholder={val?.placeholder}
+                              aria-invalid={error?.message ? "true" : "false"}
+                              className={classNames({
+                                "border-danger": error?.message,
+                              })}
+                            />
+                          </>
+                        )}
+                      />
+                    )}
                   </Col>
                   <Col xs={12}>
                     {errors[val?.name] && (
