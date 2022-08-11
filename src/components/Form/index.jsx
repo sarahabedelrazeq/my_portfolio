@@ -26,7 +26,6 @@ function Form({ defaultValues, schema, children, submitControl }) {
     );
   }
 
-  console.log("custom Form errors", errors);
 
   return (
     <BootstrapForm onSubmit={handleSubmit(onSubmit)}>

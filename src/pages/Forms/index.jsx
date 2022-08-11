@@ -24,6 +24,33 @@ const Forms = () => {
         id: "password",
         required: false,
       },
+      language: {
+        name: "language",
+        title: "Language",
+        placeholder: "Language",
+        component: "autocomplete",
+        id: "language",
+        required: false,
+        options: [
+          { id: 1, label: "English" },
+          { id: 2, label: "Arabic" },
+        ],
+        defaultValue: 1,
+      },
+      multipleLanguage: {
+        name: "multipleLanguage",
+        title: "Multiple Language",
+        multiple: true,
+        placeholder: "Multiple Language",
+        component: "autocomplete",
+        id: "multipleLanguage",
+        required: false,
+        options: [
+          { id: 1, label: "English" },
+          { id: 2, label: "Arabic" },
+        ],
+        defaultValue: [1, 4],
+      },
     };
   }, []);
 
@@ -37,8 +64,13 @@ const Forms = () => {
   const schema = React.useMemo(() => {
     return yup
       .object({
-        name: yup.string().required(""),
+        name: yup
+          .object({
+            en: yup.string().required("en value required"),
+          })
+          .required(""),
         password: yup.number().positive().integer(),
+        language: yup.string().required("language"),
       })
       .required();
   }, []);

@@ -1,54 +1,73 @@
+import { TextField } from "@mui/material";
 import classNames from "classnames";
 import React from "react";
-import { Form } from "react-bootstrap";
-import { Controller, useFormContext } from "react-hook-form";
+import { Col, Form, Row } from "react-bootstrap";
+import { useFormContext } from "react-hook-form";
 
 const languages = [
   { code: "en", title: "English" },
   { code: "ar", title: "Arabic" },
 ];
 
-export default function TransitionInput({ val }) {
+export default function TransitionInput({ field }) {
   const {
-    control,
     setValue,
     getValues,
     formState: { errors },
   } = useFormContext();
 
   return languages.map((language, index) => (
-    <div className="mb-3" key={index}>
-      <Controller
-        name={val?.name + "-" + language.code}
-        control={control}
-        rules={{ required: true }}
-        defaultValue={val?.defaultValue && val?.defaultValue[language.code]? val?.defaultValue[language.code] : ""}
-        render={({
-          field: { onChange, onBlur, value, name, ref },
-          fieldState: { invalid, isTouched, isDirty, error },
-          formState,
-        }) => (
-          <>
-            <Form.Control
-              onBlur={onBlur}
-              ref={ref}
+    <Col sm={6} xs={12} key={index}>
+      <Form.Group
+        className="mb-4"
+        controlId={`${field?.name}-${language.code}`}
+      >
+        <Row>
+          <Col xs={12} className="mb-3">
+            <TextField
+              label={`${field?.title} (${language.title})`}
               onChange={(event) => {
-                setValue(val?.name, {
-                  ...getValues(val?.name),
+                setValue(field?.name, {
+                  ...getValues(field?.name),
                   [language.code]: event.target.value,
                 });
-                onChange(event)
               }}
-              value={value}
-              placeholder={val?.placeholder}
-              aria-invalid={error?.message ? "true" : "false"}
-              className={classNames({
-                "border-danger": error?.message,
+              id={`${field?.name}-${language.code}`}
+              name={`${field?.name}-${language.code}`}
+              value={
+                getValues(field?.name) && getValues(field?.name)[language.code]
+                  ? getValues(field?.name)[language.code]
+                  : ""
+              }
+              placeholder={field?.placeholder || field.title}
+              aria-invalid={
+                errors &&
+                errors[field?.name] &&
+                errors[field?.name][language.code]
+                  ? "true"
+                  : "false"
+              }
+              type={field?.type || "text"}
+              className={classNames("w-100", {
+                "border-danger":
+                  errors &&
+                  errors[field?.name] &&
+                  errors[field?.name][language.code],
               })}
             />
-          </>
-        )}
-      />
-    </div>
+          </Col>
+          <Col xs={12}>
+            {errors[field?.name] && (
+              <p className="text-danger" role="alert">
+                {errors &&
+                  errors[field?.name] &&
+                  errors[field?.name][language.code] &&
+                  errors[field?.name][language.code].message}
+              </p>
+            )}
+          </Col>
+        </Row>
+      </Form.Group>
+    </Col>
   ));
 }
