@@ -1,11 +1,10 @@
-import { TextField } from "@mui/material";
-import Autocomplete, { createFilterOptions } from "@mui/material/Autocomplete";
+import Autocomplete from "@mui/material/Autocomplete";
 import classNames from "classnames";
 import React from "react";
 import { Col, Form, Row } from "react-bootstrap";
-import { Controller, useFormContext } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 
-export default function TransitionInput({ field }) {
+export default function TransitionInput({ field, ThemeTextField }) {
   const {
     setValue,
     register,
@@ -71,13 +70,16 @@ export default function TransitionInput({ field }) {
                 className={classNames("w-100", {
                   "border-danger": errors[field?.name],
                 })}
-                renderInput={(params) => (
-                  <TextField
-                    {...params}
-                    label={field?.title}
-                    placeholder={field?.placeholder || field.title}
-                  />
-                )}
+                renderInput={(params) => {
+                  console.log("params", params)
+                  return (
+                    <ThemeTextField
+                      {...params}
+                      label={field?.title}
+                      placeholder={field?.placeholder || field.title}
+                    />
+                  );
+                }}
               />
             )}
           </Col>

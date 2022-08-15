@@ -1,4 +1,3 @@
-import { TextField } from "@mui/material";
 import classNames from "classnames";
 import React from "react";
 import { Col, Form, Row } from "react-bootstrap";
@@ -9,7 +8,7 @@ const languages = [
   { code: "ar", title: "Arabic" },
 ];
 
-export default function TransitionInput({ field }) {
+export default function TransitionInput({ field, ThemeTextField }) {
   const {
     setValue,
     getValues,
@@ -24,7 +23,7 @@ export default function TransitionInput({ field }) {
       >
         <Row>
           <Col xs={12} className="mb-3">
-            <TextField
+            <ThemeTextField
               label={`${field?.title} (${language.title})`}
               onChange={(event) => {
                 setValue(field?.name, {

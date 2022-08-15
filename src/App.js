@@ -1,7 +1,7 @@
 import { ErrorBoundary, Fallback } from "components";
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import { useLanguage } from "./hooks";
+import { useLanguage, useTheme } from "./hooks";
 import "./sass/index.scss";
 
 const routes = [
@@ -27,14 +27,17 @@ const routes = [
 
 function App() {
   const language = useLanguage();
+  const theme = useTheme();
+
   React.useLayoutEffect(() => {
     document.documentElement.setAttribute("lang", language.lang);
     document.documentElement.setAttribute("dir", language.direction);
-  }, [language]);
+    document.documentElement.setAttribute("class", "theme-" + theme.name);
+  }, [language, theme]);
 
   return (
     <ErrorBoundary>
-      <div>
+      <div className="text-name">
         <React.Suspense
           fallback={
             <div className="vw-100 vh-100">

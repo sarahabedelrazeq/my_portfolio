@@ -37,7 +37,7 @@ const Home = () => {
         </Container>
       </section>
 
-      <section className="pt-5 multicolor-section">
+      <section id="about" className="pt-5 multicolor-section">
         <Container className="py-5">
           <Row className="justify-content-center">
             <Col xs={12} className="text-center mb-4 mb-lg-4">
@@ -47,7 +47,7 @@ const Home = () => {
               <p style={{ color: theme.bg }}>{language.aboutSubTitle}</p>
             </Col>
             <Col xs={12}>
-              <Row>
+              <Row className="justify-content-center">
                 {about.map((info, index) => (
                   <Col
                     lg={4}
@@ -93,7 +93,7 @@ const Home = () => {
               <p style={{ color: theme.text }}>{language.projectsSubTitle}</p>
             </Col>
             <Col xs={12}>
-              <Row>
+              <Row className="justify-content-center">
                 {projects.map((project, index) => (
                   <Col
                     lg={4}

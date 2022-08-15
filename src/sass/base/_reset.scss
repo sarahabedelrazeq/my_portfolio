@@ -6,6 +6,13 @@ html {
   }
 }
 
+html.theme-dark{
+  background-color: theme-color(darkbg);
+}
+html.theme-light{
+  background-color: theme-color(lightbg);
+}
+
 body {
   height: 100%;
   margin: 0;
@@ -37,4 +44,12 @@ select {
 
 textarea {
   resize: none !important;
+}
+
+fieldset{
+  border-color: inherit !important;
+}
+.MuiAutocomplete-tag{
+  color: inherit !important;
+  background-color: rgba(128, 128, 128, 0.5) !important;
 }

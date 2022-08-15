@@ -1,10 +1,11 @@
 import React from "react";
-import { TextField } from "@mui/material";
 import classNames from "classnames";
 import { Col, Form, Row } from "react-bootstrap";
 import { Controller, useFormContext } from "react-hook-form";
+import { useTheme } from "hooks";
 
-export default function Input({field}) {
+export default function Input({ field, ThemeTextField }) {
+  const theme = useTheme();
   const {
     control,
     formState: { errors },
@@ -21,36 +22,26 @@ export default function Input({field}) {
               rules={{ required: true }}
               defaultValue={field?.defaultValue ? field?.defaultValue : ""}
               render={({
-                field: { onChange, onBlur, value, name, ref },
-                fieldState: { invalid, isTouched, isDirty, error },
-                formState,
+                field: { onChange, onBlur, value, ref },
+                fieldState: { error },
               }) => (
                 <>
-                  <TextField
+                  <ThemeTextField
                     onBlur={onBlur}
                     onChange={onChange}
                     value={value}
                     ref={ref}
                     id={field?.name}
+                    helperText={errors[field?.name]?.message}
                     name={field?.name}
                     type={field?.type || "text"}
                     placeholder={field?.placeholder || field.title}
                     label={field?.title}
                     aria-invalid={error?.message ? "true" : "false"}
-                    className={classNames("w-100", {
-                      "border-danger": error?.message,
-                    })}
                   />
                 </>
               )}
             />
-          </Col>
-          <Col xs={12}>
-            {errors[field?.name] && (
-              <p className="text-danger" role="alert">
-                {errors[field?.name]?.message}
-              </p>
-            )}
           </Col>
         </Row>
       </Form.Group>
