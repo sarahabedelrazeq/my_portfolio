@@ -4,7 +4,7 @@ import React from "react";
 import { Col, Form, Row } from "react-bootstrap";
 import { useFormContext } from "react-hook-form";
 
-export default function TransitionInput({ field, ThemeTextField }) {
+export default function AutocompleteInput({ field, ThemeTextField }) {
   const {
     setValue,
     register,
@@ -52,7 +52,7 @@ export default function TransitionInput({ field, ThemeTextField }) {
           <Col xs={12} className="mb-3">
             {(valueDefault || valueDefault === null) && (
               <Autocomplete
-                {...register(field?.name)}
+               // {...register(field?.name)}
                 multiple={field.multiple}
                 onChange={(event, newValue) => {
                   let formNewValue;
