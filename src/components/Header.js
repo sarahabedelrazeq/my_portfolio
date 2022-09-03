@@ -21,7 +21,7 @@ const Header = () => {
           <Col xs={6}>
             <img
               style={{ color: theme.text }}
-              src="f"
+              src="images/sarah-logo.png"
               alt="Sarah Abed Elrazeq"
             />
           </Col>
