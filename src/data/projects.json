@@ -1,20 +1,10 @@
 [
   {
-    "id": "forms",
-    "name": "Forms",
-    "image": "/images/projects/forms.png",
-    "url": "/forms"
-  },
-  {
-    "id": "forms",
-    "name": "Forms",
-    "image": "/images/projects/forms.png",
-    "url": "/forms"
-  },
-  {
-    "id": "forms",
-    "name": "Forms",
-    "image": "/images/projects/forms.png",
-    "url": "/forms"
+    "id": "1",
+    "name": { "en": "E-Commerce", "ar": "تسوق الكتروني" },
+    "image": "/images/projects/e-commerce.png",
+    "url": "https://e-commerce2-eight.vercel.app/",
+    "languages": ["JavaScript", "HTML5", "CSS3"],
+    "frameWorks": ["NextJs", "ReactJs", "SASS", "Redux"]
   }
 ]

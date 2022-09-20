@@ -6,4 +6,22 @@
       theme-color(secondary) 70%
     );
   }
+  .project-cart {
+    .project-img {
+      object-fit: cover;
+      object-position: center top;
+      transition: all 300ms ease-in-out;
+    }
+    .project-img-container:hover {
+      .project-img {
+        object-position: center bottom;
+      }
+      .project-overlay{
+        display: block !important; 
+      }
+    }
+    svg:hover{
+      fill: theme-color(primary);
+    }
+  }
 }
