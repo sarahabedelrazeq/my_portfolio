@@ -2,6 +2,10 @@
   {
     "id": "1",
     "name": { "en": "E-Commerce", "ar": "تسوق الكتروني" },
+    "description": {
+      "en": "a demo e-commerce website ",
+      "ar": "موقع ويب تجريبي للتجارة الإلكترونية"
+    },
     "image": "/images/projects/e-commerce.png",
     "url": "https://e-commerce2-eight.vercel.app/",
     "languages": ["JavaScript", "HTML5", "CSS3"],

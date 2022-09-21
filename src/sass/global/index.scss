@@ -10,7 +10,6 @@ button,
   transition: all 250ms ease;
 }
 
-
 .form-control {
   &:focus {
     border-color: theme-color(primary) !important;
@@ -196,4 +195,10 @@ button {
 }
 .bg-overlay {
   background-color: rgba(0, 0, 0, 0.4) !important;
+}
+.object-fit-cover {
+  object-fit: cover;
+}
+.object-position-center-top{
+  object-position: center top;
 }

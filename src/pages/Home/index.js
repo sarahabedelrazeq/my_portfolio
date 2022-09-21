@@ -186,6 +186,7 @@ const Home = () => {
           show={modalImage !== ""}
           onHide={() => setModalImage("")}
           size="lg"
+          centered
         >
           <div>
             <img className="w-100" alt="html" src={modalImage} />
@@ -195,9 +196,48 @@ const Home = () => {
           show={modalProject}
           onHide={() => setModalProject(null)}
           size="lg"
+          centered
         >
-          <div>
-            {/* <img className="w-100" alt="html" src={modalProject} /> */}
+          <div className="p-4">
+            {modalProject && (
+              <Row>
+                <Col xs={12} className="mb-4 text-center">
+                  <img
+                    className="object-fit-cover object-position-center-top"
+                    height={300}
+                    width={550}
+                    alt="html"
+                    src={modalProject.image}
+                  />
+                </Col>
+                <Col xs={12} className="mb-3">
+                  <h4>{modalProject.name[language.code]}</h4>
+                </Col>
+                <Col xs={12} className="mb-3">
+                  <p>{modalProject.description[language.code]}</p>
+                </Col>
+                <Col xs={12} className="mb-3">
+                  <Row>
+                    <Col xs={4}>
+                      <p>{language.frameWorks}: </p>
+                    </Col>
+                    <Col xs={8}>
+                      <p>{modalProject.frameWorks?.join(", ")}</p>
+                    </Col>
+                  </Row>
+                </Col>
+                <Col xs={12}>
+                  <Row>
+                    <Col xs={4}>
+                      <p>{language.languages}: </p>
+                    </Col>
+                    <Col xs={8}>
+                      <p>{modalProject.languages?.join(", ")}</p>
+                    </Col>
+                  </Row>
+                </Col>
+              </Row>
+            )}
           </div>
         </Modal>
       </section>
