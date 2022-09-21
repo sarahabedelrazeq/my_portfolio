@@ -114,7 +114,7 @@ const Home = () => {
                               src={project?.image}
                               height={250}
                             />
-                            <div className="project-overlay position-absolute w-100  bg-overlay top-0 rounded-1 h-100">
+                            <div className="project-overlay d-none position-absolute w-100  bg-overlay top-0 rounded-1 h-100">
                               <ul className="list-unstyled gap-3 d-flex align-items-center justify-content-center h-100 mb-0">
                                 <li className="bg-white rounded-circle p-1">
                                   <Button
