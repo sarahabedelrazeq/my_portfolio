@@ -162,12 +162,12 @@ const Home = () => {
                           </div>
                         </Col>
                         <Col xs={12}>
-                          <h4 style={{ color: theme.text }}>
+                          <h4>
                             <a
                               href={project.url}
                               target="_blank"
                               rel="noreferrer"
-                              className="text-black"
+                              style={{ color: theme.text }}
                             >
                               {project?.name[language.code]}
                             </a>
