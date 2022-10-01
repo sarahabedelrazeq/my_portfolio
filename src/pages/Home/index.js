@@ -3,8 +3,7 @@ import { Button, Col, Container, Modal, Row } from "react-bootstrap";
 import { images } from "assets";
 import { Main } from "components/Layouts";
 import { useLanguage, useTheme } from "hooks";
-import about from "data/about.json";
-import projects from "data/projects.json";
+import client from "helpers/client";
 import { Eye, Link45deg, ThreeDots } from "react-bootstrap-icons";
 
 const Home = () => {
@@ -12,6 +11,26 @@ const Home = () => {
   const theme = useTheme();
   const [modalImage, setModalImage] = React.useState("");
   const [modalProject, setModalProject] = React.useState(null);
+  const [projects, setProjects] = React.useState([]);
+  const [about, setAbout] = React.useState([]);
+
+  const getProjects = React.useCallback(async () => {
+    let { data: projects, error } = await client.from("projects").select(`*`);
+    if (!error) setProjects(projects);
+  }, []);
+
+  const getAbout = React.useCallback(async () => {
+    let { data: about, error } = await client.from("about").select(`*`);
+    if (!error) setAbout(about);
+  }, []);
+
+  React.useEffect(() => {
+    getProjects();
+  }, [getProjects]);
+
+  React.useEffect(() => {
+    getAbout();
+  }, [getAbout]);
 
   return (
     <Main id="home_page">
