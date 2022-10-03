@@ -34,7 +34,7 @@ const Home = () => {
 
   return (
     <Main id="home_page">
-      <section className="pt-5">
+      <section className="pt-5" id="home">
         <Container className="py-5">
           <Row>
             <Col xs={12} className="text-center mb-4 mb-lg-4">
@@ -104,7 +104,7 @@ const Home = () => {
         </Container>
       </section>
 
-      <section className="pt-5">
+      <section className="pt-5" id="project">
         <Container className="py-5">
           <Row>
             <Col xs={12} className="text-center mb-4 mb-lg-4">

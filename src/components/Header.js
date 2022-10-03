@@ -29,13 +29,18 @@ const Header = () => {
             <nav>
               <ul className="list-group list-group-horizontal bg-transparent justify-content-end">
                 <li className="list-group-item bg-transparent border-0">
-                  <Link style={{ color: theme.text }} to={pathname == "#home"}>
+                  <Link style={{ color: theme.text }} to={"#home"}>
                     {language.home}
                   </Link>
                 </li>
                 <li className="list-group-item bg-transparent border-0">
-                  <Link style={{ color: theme.text }} to={pathname == "#about"}>
+                  <Link style={{ color: theme.text }} to={"#about"}>
                     {language.about}
+                  </Link>
+                </li>
+                <li className="list-group-item bg-transparent border-0">
+                  <Link style={{ color: theme.text }} to={"#projects"}>
+                  {language.projectsTitle}
                   </Link>
                 </li>
                 <li className="list-group-item bg-transparent border-0">
