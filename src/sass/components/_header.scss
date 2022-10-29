@@ -4,11 +4,11 @@
 
   z-index: 200;
 
-  @media only screen and(max-width:768px) {
+  @media only screen and (max-width:768px) {
     max-height: fit-content;
   }
 
-  @media only screen and(max-width: 319px) {
+  @media only screen and (max-width: 319px) {
     position: relative !important;
     margin-top: -160px;
   }
@@ -38,7 +38,7 @@
         color: theme-color(primary);
         font-weight: 700;
       }
-      @media only screen and(max-width: 1024px) and (min-width: 768px) {
+      @media only screen and (max-width: 1024px) and (min-width: 768px) {
         font-size: 14px;
       }
     }
@@ -65,7 +65,7 @@
       inset: 20px auto auto calc(256px * -0.15) !important;
     }
 
-    @media only screen and(max-width: 768px) {
+    @media only screen and (max-width: 768px) {
       &::before {
         display: none;
       }
