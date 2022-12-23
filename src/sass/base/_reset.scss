@@ -1,6 +1,7 @@
 html {
   min-width: 320px;
   overflow-x: hidden;
+  scroll-behavior: smooth;
   &[dir="rtl"] {
     direction: rtl;
   }

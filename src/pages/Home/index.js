@@ -5,6 +5,7 @@ import { Main } from "components/Layouts";
 import { useLanguage, useTheme } from "hooks";
 import client from "helpers/client";
 import { Eye, Link45deg, ThreeDots } from "react-bootstrap-icons";
+import { useLocation } from "react-router-dom";
 
 const Home = () => {
   const language = useLanguage();
@@ -13,6 +14,10 @@ const Home = () => {
   const [modalProject, setModalProject] = React.useState(null);
   const [projects, setProjects] = React.useState([]);
   const [about, setAbout] = React.useState([]);
+  const { hash } = useLocation();
+  const homeSection = React.useRef();
+  const aboutSection = React.useRef();
+  const projectsSection = React.useRef();
 
   const getProjects = React.useCallback(async () => {
     let { data: projects, error } = await client.from("projects").select(`*`);
@@ -32,9 +37,30 @@ const Home = () => {
     getAbout();
   }, [getAbout]);
 
+  React.useLayoutEffect(() => {
+    if (hash === "#home")
+      homeSection.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+        inline: "start",
+      });
+    if (hash === "#about" && about)
+      aboutSection.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+        inline: "start",
+      });
+    if (hash === "#projects" && projects)
+      projectsSection.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+        inline: "start",
+      });
+  }, [hash, projects, about]);
+
   return (
     <Main id="home_page">
-      <section className="pt-5" id="home">
+      <section ref={homeSection} id="home" className="pt-5">
         <Container className="py-5">
           <Row>
             <Col xs={12} className="text-center mb-4 mb-lg-4">
@@ -46,11 +72,26 @@ const Home = () => {
             <Col xs={12} className="">
               <Row className="justify-content-center">
                 <Col md={3} xs={6}>
-                  <img
-                    className="w-100 rounded-circle"
-                    src={images.me}
-                    alt="my-pic"
-                  />
+                  <Row>
+                    <Col xs={12} className="mb-4">
+                      <img
+                        className="w-100 rounded-circle"
+                        src={images.me}
+                        alt="my-pic"
+                      />
+                    </Col>
+                    <Col xs={12} className="text-center">
+                      <Button
+                        href="/SarahAbedElrazeq.pdf"
+                        target="_blank"
+                        download
+                        as="a"
+                        className="text-white"
+                      >
+                        {language.downloadMyResume}
+                      </Button>
+                    </Col>
+                  </Row>
                 </Col>
               </Row>
             </Col>
@@ -58,7 +99,11 @@ const Home = () => {
         </Container>
       </section>
 
-      <section id="about" className="pt-5 multicolor-section">
+      <section
+        ref={aboutSection}
+        id="about"
+        className="pt-5 multicolor-section"
+      >
         <Container className="py-5">
           <Row className="justify-content-center">
             <Col xs={12} className="text-center mb-4 mb-lg-4">
@@ -104,7 +149,7 @@ const Home = () => {
         </Container>
       </section>
 
-      <section className="pt-5" id="project">
+      <section ref={projectsSection} id="projects" className="pt-5">
         <Container className="py-5">
           <Row>
             <Col xs={12} className="text-center mb-4 mb-lg-4">
