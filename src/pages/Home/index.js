@@ -82,7 +82,7 @@ const Home = () => {
                     </Col>
                     <Col xs={12} className="text-center">
                       <Button
-                        href="/SarahAbedElrazeq.pdf"
+                        href="./SarahAbedElrazeq.pdf"
                         target="_blank"
                         download
                         as="a"
