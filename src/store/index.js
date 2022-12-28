@@ -15,7 +15,7 @@ import autoMergeLevel2 from "redux-persist/lib/stateReconciler/autoMergeLevel2";
 import { createFilter } from "redux-persist-transform-filter";
 import app from "./app";
 
-const appReducerFilter = createFilter("app", ["language", "theme"]);
+const appReducerFilter = createFilter("app", ["language", "theme", "frontEnd"]);
 
 const persistConfig = {
   key: "sarah_abed_elrazeq_portfolio",

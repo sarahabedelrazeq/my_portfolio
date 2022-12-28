@@ -8,13 +8,11 @@ import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <StrictMode>
-    <PersistGate loading={null} persistor={persistor}>
-      <Provider store={store}>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </Provider>
-    </PersistGate>
-  </StrictMode>
+  <PersistGate loading={null} persistor={persistor}>
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
+  </PersistGate>
 );
