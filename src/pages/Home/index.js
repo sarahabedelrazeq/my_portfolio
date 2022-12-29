@@ -62,25 +62,25 @@ const Home = () => {
     <Main id="home_page">
       <section ref={homeSection} id="home" className="pt-5">
         <Container className="py-5">
-          <Row>
-            <Col xs={12} className="text-center mb-4 mb-lg-4">
-              <h1 style={{ color: theme.text }}>{language.mainTitle}</h1>
-            </Col>
-            <Col xs={12} className="text-center mb-4 mb-lg-4">
-              <p style={{ color: theme.text }}>{language.mainSubTitle}</p>
-            </Col>
-            <Col xs={12} className="">
+          <Row className="align-items-center">
+            <Col xs={6}>
               <Row className="justify-content-center">
-                <Col md={3} xs={6}>
+                <Col xxl={8} xs={12}>
                   <Row>
-                    <Col xs={12} className="mb-4">
-                      <img
-                        className="w-100 rounded-circle"
-                        src={images.me}
-                        alt="my-pic"
-                      />
+                    <Col xs={12} className="mb-4 mb-lg-4">
+                      <h1 style={{ color: theme.text }}>Sarah Abed El-razeq</h1>
                     </Col>
-                    <Col xs={12} className="text-center">
+                    <Col xs={12} className="mb-4 mb-lg-4">
+                      <h4 style={{ color: theme.text }}>
+                        ________ {language.mainTitle}
+                      </h4>
+                    </Col>
+                    <Col xs={12} className="mb-4 mb-lg-4">
+                      <p style={{ color: theme.text }}>
+                        {language.mainSubTitle}
+                      </p>
+                    </Col>
+                    <Col xxl={10} xs={12} className="text-center">
                       <Button
                         href="./SarahAbedElrazeq.pdf"
                         target="_blank"
@@ -92,6 +92,17 @@ const Home = () => {
                       </Button>
                     </Col>
                   </Row>
+                </Col>
+              </Row>
+            </Col>
+            <Col xs={6}>
+              <Row className="justify-content-center">
+                <Col xxl={8} xs={12} className="text-center mb-4 mb-lg-4">
+                  <img
+                    className="w-100 rounded-circle"
+                    src={images.me}
+                    alt="my-pic"
+                  />
                 </Col>
               </Row>
             </Col>
