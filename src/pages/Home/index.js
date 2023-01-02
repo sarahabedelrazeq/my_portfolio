@@ -71,9 +71,9 @@ const Home = () => {
                       <h1 style={{ color: theme.text }}>Sarah Abed El-razeq</h1>
                     </Col>
                     <Col xs={12} className="mb-4 mb-lg-4">
-                      <h4 style={{ color: theme.text }}>
+                      <h2 className="h4" style={{ color: theme.text }}>
                         ________ {language.mainTitle}
-                      </h4>
+                      </h2>
                     </Col>
                     <Col xs={12} className="mb-4 mb-lg-4">
                       <p style={{ color: theme.text }}>
@@ -87,6 +87,7 @@ const Home = () => {
                         download
                         as="a"
                         className="text-white"
+                        variant="secondary"
                       >
                         {language.downloadMyResume}
                       </Button>
