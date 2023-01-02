@@ -1,5 +1,6 @@
+import { Main } from "components/Layouts";
 import React from "react";
-import { Container } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 
 class App extends React.Component {
   constructor(props) {
@@ -56,10 +57,31 @@ const ForwardRefTest = React.forwardRef((props, ref) => {
 function Test() {
   const ref = React.useRef(null);
   return (
+    // <div>
+    //   <ForwardRefTest ref={ref} />
+    //   <button onClick={() => console.log("ref", ref)}>test</button>
+    // </div>
     <div>
-      <ForwardRefTest ref={ref} />
-      <button onClick={() => console.log("ref", ref)}>test</button>
+      <Main>
+        <section className="pt-5">
+          <Container className="py-5">
+            <Row>
+              <Col xs={12}>
+                <iframe
+                  id="msdoc-iframe"
+                  title="msdoc-iframe"
+                  src="https://www.youtube.com/embed/mbzeiuIQKPo"
+                  frameborder="0"
+                  className="w-50"
+                  height={300}
+                ></iframe>
+              </Col>
+            </Row>
+          </Container>
+        </section>
+      </Main>
     </div>
   );
 }
+
 export default Test;

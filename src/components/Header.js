@@ -12,7 +12,6 @@ const Header = () => {
   const theme = useTheme();
   const dispatch = useDispatch();
   const themeName = useSelector((state) => state.app.theme);
-  const { pathname } = useLocation();
 
   return (
     <header>
@@ -62,6 +61,8 @@ const Header = () => {
                         switchTheme(themeName === "light" ? "dark" : "light")
                       )
                     }
+                    id={`switch-theme`}
+                    title={`switch the theme to the ${themeName === "light" ? "dark" : "light"}`}
                     style={{ color: theme.text }}
                   >
                     <FontAwesomeIcon icon={faCircleHalfStroke} />

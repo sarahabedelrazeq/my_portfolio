@@ -23,6 +23,18 @@ const routes = [
     name: "Forward Ref",
     component: React.lazy(() => import("pages/ForwardRef")),
   },
+  {
+    path: "/frontend",
+    exact: true,
+    name: "frontend",
+    component: React.lazy(() => import("pages/Frontend")),
+  },
+  {
+    path: "/frontend/:header",
+    exact: true,
+    name: "frontend2",
+    component: React.lazy(() => import("pages/Frontend2")),
+  },
 ];
 
 function App() {
