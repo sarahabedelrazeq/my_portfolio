@@ -4320,6 +4320,15 @@ export default function Frontend() {
       return newObject;
     }
   };
+  const getMainKey = (key) => {
+    if (key.split("-")) {
+      key = key.split(":").at(0);
+      const arr = key.split("-");
+      arr.shift();
+      const headerNew = arr.join("-");
+      return headerNew;
+    }
+  };
 
   return (
     <Main>
@@ -4332,31 +4341,40 @@ export default function Frontend() {
                   <li className="mb-3" key={index}>
                     {keys[item]?.title
                       .filter((item) => item?.properties?.text)
-                      .map((item, index) => {
-                        if (index > 0) return <p>{item?.properties?.text}</p>;
+                      .map((mainItem, index) => {
+                        if (index > 0)
+                          return <p>{mainItem?.properties?.text}</p>;
                         else
                           return (
-                            <h6 className="mb-2">{item?.properties?.text}</h6>
+                            <h6 className="mb-2">
+                              <a
+                                href={`https://roadmap.sh/frontend/${getMainKey(item)}/${item.split(":").at(-1)}/`}
+                                target="_blank"
+                              >
+                                {mainItem?.properties?.text}
+                              </a>
+                            </h6>
                           );
                       })}
                     <div className="p-2">
                       <ul>
-                        {getSub(item) && Object.values(getSub(item)).map((item, index) => (
-                          <li className="mb-3" key={index}>
-                            {item?.title
-                              .filter((item) => item?.properties?.text)
-                              .map((item, index) => {
-                                if (index > 0)
-                                  return <p>{item?.properties?.text}</p>;
-                                else
-                                  return (
-                                    <h6 className="mb-2">
-                                      {item?.properties?.text}
-                                    </h6>
-                                  );
-                              })}
-                          </li>
-                        ))}
+                        {getSub(item) &&
+                          Object.values(getSub(item)).map((item, index) => (
+                            <li className="mb-3" key={index}>
+                              {item?.title
+                                .filter((item) => item?.properties?.text)
+                                .map((item, index) => {
+                                  if (index > 0)
+                                    return <p>{item?.properties?.text}</p>;
+                                  else
+                                    return (
+                                      <h6 className="mb-2">
+                                        {item?.properties?.text}
+                                      </h6>
+                                    );
+                                })}
+                            </li>
+                          ))}
                       </ul>
                     </div>
                   </li>
