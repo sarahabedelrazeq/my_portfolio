@@ -6,6 +6,7 @@ import { useLanguage, useTheme } from "hooks";
 import client from "helpers/client";
 import { Eye, Link45deg, ThreeDots } from "react-bootstrap-icons";
 import { useLocation } from "react-router-dom";
+import "../../sass/index.scss";
 
 const Home = () => {
   const language = useLanguage();

@@ -1,8 +1,7 @@
 import { ErrorBoundary, Fallback } from "components";
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import { useLanguage, useTheme } from "./hooks";
-import "./sass/index.scss";
 
 const routes = [
   {
@@ -11,35 +10,42 @@ const routes = [
     name: "Home",
     component: React.lazy(() => import("pages/Home")),
   },
+  // {
+  //   path: "/forms",
+  //   exact: true,
+  //   name: "Forms",
+  //   component: React.lazy(() => import("pages/Forms")),
+  // },
   {
-    path: "/forms",
+    path: "/digital-agency",
     exact: true,
-    name: "Forms",
-    component: React.lazy(() => import("pages/Forms")),
+    name: "Digital Agency",
+    component: React.lazy(() => import("pages/DigitalAgency")),
   },
-  {
-    path: "/ForwardRef",
-    exact: true,
-    name: "Forward Ref",
-    component: React.lazy(() => import("pages/ForwardRef")),
-  },
-  {
-    path: "/frontend",
-    exact: true,
-    name: "frontend",
-    component: React.lazy(() => import("pages/Frontend")),
-  },
-  {
-    path: "/frontend/:header",
-    exact: true,
-    name: "frontend2",
-    component: React.lazy(() => import("pages/Frontend2")),
-  },
+  // {
+  //   path: "/ForwardRef",
+  //   exact: true,
+  //   name: "Forward Ref",
+  //   component: React.lazy(() => import("pages/ForwardRef")),
+  // },
+  // {
+  //   path: "/frontend",
+  //   exact: true,
+  //   name: "frontend",
+  //   component: React.lazy(() => import("pages/Frontend")),
+  // },
+  // {
+  //   path: "/frontend/:header",
+  //   exact: true,
+  //   name: "frontend2",
+  //   component: React.lazy(() => import("pages/Frontend2")),
+  // },
 ];
 
 function App() {
   const language = useLanguage();
   const theme = useTheme();
+  const  { pathname } = useLocation()
 
   React.useLayoutEffect(() => {
     document.documentElement.setAttribute("lang", language.lang);
@@ -49,11 +55,11 @@ function App() {
 
   return (
     <ErrorBoundary>
-      <div className="text-name">
+      <div>
         <React.Suspense
           fallback={
             <div className="vw-100 vh-100">
-              <Fallback />
+              <Fallback color={pathname === '/digital-agency' && "#f81f01"} />
             </div>
           }
         >

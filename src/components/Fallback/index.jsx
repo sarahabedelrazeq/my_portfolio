@@ -1,17 +1,16 @@
 import React from "react";
-import { ClipLoader } from "react-spinners";
+import { CircleLoader, ClipLoader } from "react-spinners";
 
-function Fallback() {
+function Fallback({color = "#dd00b899"}) {
   return (
     <div className="w-100 h-100 ">
       <div className="d-flex w-100 h-100 justify-content-center align-items-center">
-        <ClipLoader
-          color="#0d6efd"
+        <CircleLoader
+          color={color || "#dd00b899"}
           loading={true}
-          cssOverride={{
-            display: "block",
-          }}
+          cssOverride={{}}
           size={150}
+          speedMultiplier={1}
         />
       </div>
     </div>
