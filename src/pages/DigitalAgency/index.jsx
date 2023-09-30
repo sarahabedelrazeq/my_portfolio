@@ -24,8 +24,8 @@ export default function DigitalAgency() {
         <div className="about-wrapper">
           <div className="container">
             <div className="row row--35 align-items-center">
-              <div className="col-lg-5 col-md-12">
-                <div className="thumbnail">
+              <div className="col-lg-5 col-md-12 position-relative">
+                <div className="thumbnail image-down-up">
                   <img
                     className="w-100"
                     src="./assets/about-1.jpg"

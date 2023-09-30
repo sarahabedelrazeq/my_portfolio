@@ -83,7 +83,6 @@ export default function Portfolio() {
                     </div>
                   </div>
                 </div>
-                <a className="link-overlay" href="/portfolio-details"></a>
               </div>
 
               <div className="portfolio">
@@ -106,7 +105,6 @@ export default function Portfolio() {
                     </div>
                   </div>
                 </div>
-                <a className="link-overlay" href="/portfolio-details"></a>
               </div>
 
               <div className="portfolio">
@@ -129,7 +127,6 @@ export default function Portfolio() {
                     </div>
                   </div>
                 </div>
-                <a className="link-overlay" href="/portfolio-details"></a>
               </div>
 
               <div className="portfolio">
@@ -152,7 +149,6 @@ export default function Portfolio() {
                     </div>
                   </div>
                 </div>
-                <a className="link-overlay" href="/portfolio-details"></a>
               </div>
               
               <div className="portfolio">
@@ -175,7 +171,6 @@ export default function Portfolio() {
                     </div>
                   </div>
                 </div>
-                <a className="link-overlay" href="/portfolio-details"></a>
               </div>
 
               <div className="portfolio">
@@ -198,7 +193,6 @@ export default function Portfolio() {
                     </div>
                   </div>
                 </div>
-                <a className="link-overlay" href="/portfolio-details"></a>
               </div>
 
               <div className="portfolio">
@@ -221,7 +215,6 @@ export default function Portfolio() {
                     </div>
                   </div>
                 </div>
-                <a className="link-overlay" href="/portfolio-details"></a>
               </div>
 
               <div className="portfolio">
@@ -244,7 +237,6 @@ export default function Portfolio() {
                     </div>
                   </div>
                 </div>
-                <a className="link-overlay" href="/portfolio-details"></a>
               </div>
             </Slider>
           </div>
