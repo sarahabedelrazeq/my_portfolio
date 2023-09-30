@@ -73,8 +73,7 @@ export default function Portfolio() {
                     <p>Development</p>
                     <h4 className="title">
                       <a href="/portfolio-details">
-                        {" "}
-                        Getting tickets to the big show 1
+                        Getting tickets to the big show
                       </a>
                     </h4>
                     <div className="portfolio-button">
@@ -97,8 +96,7 @@ export default function Portfolio() {
                     <p>Development</p>
                     <h4 className="title">
                       <a href="/portfolio-details">
-                        {" "}
-                        Getting tickets to the big show 2
+                        Getting tickets to the big show
                       </a>
                     </h4>
                     <div className="portfolio-button">
@@ -121,8 +119,7 @@ export default function Portfolio() {
                     <p>Development</p>
                     <h4 className="title">
                       <a href="/portfolio-details">
-                        {" "}
-                        Getting tickets to the big show 3
+                        Getting tickets to the big show
                       </a>
                     </h4>
                     <div className="portfolio-button">
@@ -145,8 +142,7 @@ export default function Portfolio() {
                     <p>Development</p>
                     <h4 className="title">
                       <a href="/portfolio-details">
-                        {" "}
-                        Getting tickets to the big show 4
+                        Getting tickets to the big show
                       </a>
                     </h4>
                     <div className="portfolio-button">
@@ -169,8 +165,7 @@ export default function Portfolio() {
                     <p>Development</p>
                     <h4 className="title">
                       <a href="/portfolio-details">
-                        {" "}
-                        Getting tickets to the big show 1
+                        Getting tickets to the big show
                       </a>
                     </h4>
                     <div className="portfolio-button">
@@ -193,8 +188,7 @@ export default function Portfolio() {
                     <p>Development</p>
                     <h4 className="title">
                       <a href="/portfolio-details">
-                        {" "}
-                        Getting tickets to the big show 2
+                        Getting tickets to the big show
                       </a>
                     </h4>
                     <div className="portfolio-button">
@@ -217,8 +211,7 @@ export default function Portfolio() {
                     <p>Development</p>
                     <h4 className="title">
                       <a href="/portfolio-details">
-                        {" "}
-                        Getting tickets to the big show 3
+                        Getting tickets to the big show
                       </a>
                     </h4>
                     <div className="portfolio-button">
@@ -241,8 +234,7 @@ export default function Portfolio() {
                     <p>Development</p>
                     <h4 className="title">
                       <a href="/portfolio-details">
-                        {" "}
-                        Getting tickets to the big show 4
+                        Getting tickets to the big show
                       </a>
                     </h4>
                     <div className="portfolio-button">
