@@ -21,7 +21,10 @@ const Home = () => {
   const projectsSection = React.useRef();
 
   const getProjects = React.useCallback(async () => {
-    let { data: projects, error } = await client.from("projects").select(`*`);
+    let { data: projects, error } = await client
+      .from("projects")
+      .select(`*`)
+      .order("created_at", { ascending: false });;
     if (!error) setProjects(projects);
   }, []);
 
@@ -83,7 +86,7 @@ const Home = () => {
                     </Col>
                     <Col xs={12} className="text-center">
                       <Button
-                        href="./Sarah Abed Elrazeq 2023.pdf"
+                        href="./Sarah Abed Elrazeq 2024.pdf"
                         target="_blank"
                         download
                         as="a"
